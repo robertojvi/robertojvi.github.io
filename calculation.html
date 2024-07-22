@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Construction Time Calculator</title>
+</head>
+<body>
+    <h1>Construction Time Calculator</h1>
+    <form id="construction-time-form">
+        <label for="num-sites">Number of Sites:</label>
+        <input type="number" id="num-sites" name="num-sites" required>
+        <br>
+        <label for="crew-size">Crew Size:</label>
+        <input type="number" id="crew-size" name="crew-size" required>
+        <br>
+        <button type="button" onclick="calculateTime()">Calculate</button>
+    </form>
+    <div id="siteResults">
+        
+    </div>
+    <div id="individualTimeResults">
+        
+    </div>
+    <div id="menDayResults">
+        
+    </div>
+    <div id="timeResults">
+        
+    </div>
+
+    <script>
+        function getUrlParameters() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                trenchConduitPerDayPerMan: parseFloat(urlParams.get('trenchConduitPerDayPerMan')),
+                fiberBackbonePerDayPerMan: parseFloat(urlParams.get('fiberBackbonePerDayPerMan')),
+                roadBoresPerDayPerMan: parseFloat(urlParams.get('roadBoresPerDayPerMan')),
+                microDuctPerDayPerMan: parseFloat(urlParams.get('microDuctPerDayPerMan')),
+                preTerminatedFiberPerDayPerMan: parseFloat(urlParams.get('preTerminatedFiberPerDayPerMan')),
+                fiberSplicesPerDayPerMan: parseFloat(urlParams.get('fiberSplicesPerDayPerMan')),
+                splicePedEnclosuresPerDayPerMan: parseFloat(urlParams.get('splicePedEnclosuresPerDayPerMan')),
+                handHolesPerDayPerMan: parseFloat(urlParams.get('handHolesPerDayPerMan')),
+                avgPreTerminatedFiberPerSite: parseFloat(urlParams.get('avgPreTerminatedFiberPerSite')),
+                avgTrenchConduitPerSite: parseFloat(urlParams.get('avgTrenchConduitPerSite')),
+                avgFiberBackbonePerSite: parseFloat(urlParams.get('avgFiberBackbonePerSite')),
+                avgRoadBoresPerSite: parseFloat(urlParams.get('avgRoadBoresPerSite')),
+                avgMicroDuctHomesPerSite: parseFloat(urlParams.get('avgMicroDuctHomesPerSite')),
+                avgFiberSplicesPerSite: parseFloat(urlParams.get('avgFiberSplicesPerSite')),
+                avgSplicePedEnclosuresPerSite: parseFloat(urlParams.get('avgSplicePedEnclosuresPerSite')),
+                avgHandHolesPerSite: parseFloat(urlParams.get('avgHandHolesPerSite')),
+            }
+        }
+    
+        function calculateTime() {
+            const numSites = parseFloat(document.getElementById('num-sites').value) || 0;
+            const crewSize = parseFloat(document.getElementById('crew-size').value) || 1;
+    
+            const params = getUrlParameters();
+    
+            const preTerminatedFiber = numSites * params.avgPreTerminatedFiberPerSite;
+            const trenchConduit = numSites * params.avgTrenchConduitPerSite;
+            const fiberBackbone = numSites * params.avgFiberBackbonePerSite;
+            const roadBores = numSites * params.avgRoadBoresPerSite;
+            const microDuctHomes = numSites * params.avgMicroDuctHomesPerSite;
+            const fiberSplices = numSites * params.avgFiberSplicesPerSite;
+            const splicePedEnclosures = numSites * params.avgSplicePedEnclosuresPerSite;
+            const handHoles = numSites * params.avgHandHolesPerSite;
+            const preTerminatedFiberPerDayPerMan = params.preTerminatedFiberPerDayPerMan;
+            const trenchConduitPerDayPerMan = params.trenchConduitPerDayPerMan;
+            const fiberBackbonePerDayPerMan = params.fiberBackbonePerDayPerMan;
+            const roadBoresPerDayPerMan = params.roadBoresPerDayPerMan;
+            const microDuctPerDayPerMan = params.microDuctPerDayPerMan;
+            const fiberSplicesPerDayPerMan = params.fiberSplicesPerDayPerMan;
+            const splicePedEnclosuresPerDayPerMan = params.splicePedEnclosuresPerDayPerMan;
+            const handHolesPerDayPerMan = params.handHolesPerDayPerMan;
+
+            const siteResults = document.getElementById('siteResults');
+            siteResults.innerHTML = `<p>Total Pre-Terminated Fiber: ${preTerminatedFiber.toFixed(2)} ft</p>
+                <p>Total Trench Conduit: ${trenchConduit.toFixed(2)} ft</p>
+                <p>Total Fiber Backbone: ${fiberBackbone.toFixed(2)} ft</p>
+                <p>Total Road Bores: ${roadBores.toFixed(2)} units</p>
+                <p>Total Micro Duct to Homes: ${microDuctHomes.toFixed(2)} ft</p>
+                <p>Total Fiber Splices: ${fiberSplices.toFixed(2)} units</p>
+                <p>Total Splice Ped Enclosures: ${splicePedEnclosures.toFixed(2)} units</p>
+                <p>Total Hand Holes: ${handHoles.toFixed(2)} units</p>`;
+
+                // const menDayResults = document.getElementById('menDayResults');
+                // menDayResults.innerHTML = `<p>Men per Day: ${crewSize}</p>
+                // <p>Pre-Terminated Fiber per men per day: ${params.preTerminatedFiberPerDayPerMan}</p>
+                // <p>Trench Conduit per men per day: ${params.trenchConduitPerDayPerMan}</p>
+                // <p>Fiber Backbone per men per day: ${params.fiberBackbonePerDayPerMan}</p>
+                // <p>Road Bores per men per day: ${params.roadBoresPerDayPerMan}</p>
+                // <p>Micro Duct to Homes per men per day: ${params.microDuctPerDayPerMan}</p>
+                // <p>Fiber Splices per men per day: ${params.fiberSplicesPerDayPerMan}</p>
+                // <p>Splice Ped Enclosures per men per day: ${params.splicePedEnclosuresPerDayPerMan}</p>
+                // <p>Hand Holes per men per day: ${params.handHolesPerDayPerMan}</p>
+                // `;
+    
+            const timePreTerminatedFiber = (preTerminatedFiber / params.preTerminatedFiberPerDayPerMan) / crewSize;
+            const timeTrenchConduit = (trenchConduit / params.trenchConduitPerDayPerMan) / crewSize;
+            const timeFiberBackbone = (fiberBackbone / params.fiberBackbonePerDayPerMan) / crewSize;
+            const timeRoadBores = (roadBores / params.roadBoresPerDayPerMan) / crewSize;
+            const timeMicroDuctHomes = (microDuctHomes / params.microDuctPerDayPerMan) / crewSize;
+            const timeFiberSplices = (fiberSplices / params.fiberSplicesPerDayPerMan) / crewSize;
+            const timeSplicePedEnclosures = (splicePedEnclosures / params.splicePedEnclosuresPerDayPerMan) / crewSize;
+            const timeHandHoles = (handHoles / params.handHolesPerDayPerMan) / crewSize;
+
+            // const individualTimeResults = document.getElementById('individualTimeResults');
+            // individualTimeResults.innerHTML = `<p>Pre-Terminated Fiber: ${timePreTerminatedFiber.toFixed(2)} days</p>
+            //     <p>Trench Conduit: ${timeTrenchConduit.toFixed(2)} days</p>
+            //     <p>Fiber Backbone: ${timeFiberBackbone.toFixed(2)} days</p>
+            //     <p>Road Bores: ${timeRoadBores.toFixed(2)} days</p>
+            //     <p>Micro Duct to Homes: ${timeMicroDuctHomes.toFixed(2)} days</p>
+            //     <p>Fiber Splices: ${timeFiberSplices.toFixed(2)} days</p>
+            //     <p>Splice Ped Enclosures: ${timeSplicePedEnclosures.toFixed(2)} days</p>
+            //     <p>Hand Holes: ${timeHandHoles.toFixed(2)} days</p>`;
+    
+            const timeTotal = timePreTerminatedFiber + timeTrenchConduit + timeFiberBackbone + timeRoadBores + timeMicroDuctHomes + timeFiberSplices + timeSplicePedEnclosures + timeHandHoles;
+    
+            const timeResult = document.getElementById('timeResults');
+            timeResult.innerHTML = `<p>Total Construction Time: ${(timeTotal/7).toFixed(2)} days</p>`;
+        }
+    </script>
+    
+</body>
+</html>

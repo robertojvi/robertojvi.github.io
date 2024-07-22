@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Average Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Average Calculator</h1>
+        <form id="task-form">
+            <div class="align">
+                <label for="crewSize">Crew Size (Number of Men):</label>
+                <input type="number" id="crewSize" name="crewSize" value="" placeholder="6">
+            </div>
+
+            <div class="align">
+                <label for="totalDays">Total work days:</label>
+                <input type="number" id="totalDays" name="totalDays" value="" placeholder="21">
+            </div>
+
+            <div class="align">
+                <label for="totalSites">Total sites:</label>
+                <input type="number" id="totalSites" name="totalSites" value="" placeholder="85">
+            </div>
+
+            <div class="align">
+                <label for="inventory">Inventory days:</label>
+                <input type="number" id="inventory" name="inventory" value="1">
+            </div>
+
+            <div class="align">
+                <label for="headEndInstall">Head End Installation days:</label>
+                <input type="number" id="headEndInstall" name="headEndInstall" value="1">
+            </div>
+
+            <div class="align">
+                <label for="trenchConduit">Trench & Install Conduit (ft):</label>
+                <input type="number" id="trenchConduit" name="trenchConduit" value="" placeholder="4300">
+            </div>
+
+            <div class="align">
+                <label for="fiberBackbone">Install Fiber Backbone 6-Strand (ft):</label>
+                <input type="number" id="fiberBackbone" name="fiberBackbone" value="" placeholder="14000">
+            </div>
+            
+            <div class="align">
+                <label for="roadBores">Road Bores 25' Per:</label>
+                <input type="number" id="roadBores" name="roadBores" value="" placeholder="5">
+            </div>
+            
+            <div class="align">
+                <label for="microDuct">Install Micro Duct to Homes (ft):</label>
+                <input type="number" id="microDuct" name="microDuct" value="" placeholder="14800">
+            </div>
+            
+            <div class="align">
+                <label for="preTerminatedFiber">Install Pre-Terminated Fiber (ft):</label>
+                <input type="number" id="preTerminatedFiber" name="preTerminatedFiber" value="" placeholder="12900">
+            </div>
+            
+            <div class="align">
+                <label for="fiberSplices">Fiber Splices:</label>
+                <input type="number" id="fiberSplices" name="fiberSplices" value="" placeholder="89">
+            </div>
+            
+            <div class="align">
+                <label for="splicePedEnclosures">Splice Ped Enclosures:</label>
+                <input type="number" id="splicePedEnclosures" name="splicePedEnclosures" value="" placeholder="15">
+            </div>
+
+            <div class="align">
+                <label for="handHoles">Hand holes 17x30 Vault:</label>
+                <input type="number" id="handHoles" name="handHoles" value="" placeholder="17">
+            </div>
+
+            <button type="button" id="calculateButton">Calculate Averages</button>
+        </form>
+        <div id="results"></div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
