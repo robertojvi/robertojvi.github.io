@@ -71,6 +71,7 @@ button:hover {
     width: 40vw;
     text-align: justify;
     margin: auto;
+    border : 1px solid black;
     /* margin-top: 20px; */
 }
 ul {

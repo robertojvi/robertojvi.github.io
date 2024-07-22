@@ -86,7 +86,7 @@ function calculateAverages() {
         <p>1 Man can perform:</p>
         <ul>
             <li>${trenchConduitPerDayPerMan.toFixed(2)} ft of Trenching & Installing Conduit</li>
-            <li>${fiberBackbonePerDayPerMan.toFixed(2)} ft of Installing Fiber Backbone</li>
+            <li>${fiberBackbonePerDayPerMan.toFixed(2)} ft of Installing Fiber Backbone</li>Greatm 
             <li>${roadBoresPerDayPerMan.toFixed(2)} Road Bores 25' Per</li>
             <li>${microDuctPerDayPerMan.toFixed(2)} ft of Installing Micro Duct to Homes</li>
             <li>${preTerminatedFiberPerDayPerMan.toFixed(2)} ft of Installing Pre-Terminated Fiber</li>
