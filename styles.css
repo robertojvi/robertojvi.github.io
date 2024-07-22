@@ -91,8 +91,11 @@ li {
     /* display: flex;
     flex-direction: column; */
     text-align: justify;
-    margin: auto;
+    margin: 10px;
     border : 1px solid black;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #fff;
     /* margin-top: 20px; */
 }
 
@@ -100,7 +103,16 @@ li {
     /* display: flex;
     flex-direction: column; */
     text-align: justify;
-    margin: auto;
+    margin: 10px;
     border : 1px solid black;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #fff;
+    font-weight: bold;
     /* margin-top: 20px; */
+}
+
+.calculationDisplay {
+    display: flex;
+    flex-direction: column;
 }
