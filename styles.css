@@ -86,3 +86,21 @@ li {
     list-style-type: none;
     text-align: justify;
 }
+
+#siteResults {
+    /* display: flex;
+    flex-direction: column; */
+    text-align: justify;
+    margin: auto;
+    border : 1px solid black;
+    /* margin-top: 20px; */
+}
+
+#timeResults {
+    /* display: flex;
+    flex-direction: column; */
+    text-align: justify;
+    margin: auto;
+    border : 1px solid black;
+    /* margin-top: 20px; */
+}
